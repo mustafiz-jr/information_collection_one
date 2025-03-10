@@ -17,7 +17,7 @@
     <main>
         <section>
             <h1 class="fs-1 my-5 text-center">Information collection Form </h1>
-            <form action="" method="post" class="container p-5 border rounded-3 border-dark">
+            <form action="action/sent.php" method="post" class="container p-5 border rounded-3 border-dark">
                 <input type="text" name="name" placeholder="Enter your name in here!" class=" fs-5 p-2 w-100 border-0 border-bottom ">
                 <br>
                 <br>
@@ -27,6 +27,18 @@
                 <br>
                 <br>
                 <input type="text" name="contact" placeholder="Enter your contact number here" class="fs-5 p-2 w-100 border-0 border-bottom">
+                <br>
+                <br>
+                <br>
+                <input type="text" name="course" placeholder="Enter your course name here" class="fs-5 p-2 w-100 border-0 border-bottom">
+                <br>
+                <br>
+                <br>
+                <input type="date" name="date" title="Enter your joining date here" class="fs-5 p-2 w-100 border-0 border-bottom">
+                <br>
+                <br>
+                <br>
+                <button class="btn btn-primary btn-md px-3">submit</button>
             </form>
         </section>
     </main>
