@@ -44,6 +44,16 @@
             </form>
         </section>
     </main>
+
+
+    <script>
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit",function(pause){
+            pause.preventDefault();
+
+        })
+    </script>
 </body>
 
 </html>
