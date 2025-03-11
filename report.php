@@ -50,7 +50,7 @@ include("action/fetch.php");
                                 <td scope="row"><?php echo $row['date'] ?></td>
                                 <td scope="row">
                                     <?php if ($row['status'] == 1) { ?>
-                                        <a href="action/on-off.php?id= <?php echo $row['id'] ?>" class="btn btn-info" onclick="on()">On</a>
+                                        <a href="action/on-off.php?id= <?php echo $row['id'] ?>" class="btn btn-info" onclick="on()" id="on">On</a>
                                     <?php } else { ?>
                                         <a href="action/on-off.php?id= <?php echo $row['id'] ?>" class="btn btn-warning" onclick="off()">Off</a>
                                     <?php } ?>
@@ -83,35 +83,30 @@ include("action/fetch.php");
 
     <script>
 
-        function on() {
-            Swal.fire({
-                position: "top-center",
+        // turning on popup showing code
+        const on = document.getElementById("on");
+        on.addEventListener("click", function(stop) {
+            stop.preventDefault();
+            const sweet = Swal.fire({
+                title: "Turned ON!",
                 icon: "success",
-                title: "Your data has been turned on!",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        }
+                draggable: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = on.href;
+                }
+            })
+        })
 
-        
-        function off() {
 
-            Swal.fire({
-                position: "top-center",
-                icon: "success",
-                title: "Your data has been turned Off!",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        }
 
+        // delete confirmation code
         const del = document.getElementById("delete");
 
-        del.addEventListener('click',function(pause){
+        del.addEventListener('click', function(pause) {
             pause.preventDefault();
-            const cut =Swal.fire({
+            const cut = Swal.fire({
                 title: "Are you sure to delete?",
-                // text: "You won't be able to revert this!",
                 icon: "question",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
@@ -123,10 +118,12 @@ include("action/fetch.php");
                         title: "Deleted!",
                         text: "Your file has been deleted.",
                         icon: "success"
+                    }).then(() => {
+                        // Redirect to the delete.php page with the ID parameter
+                        window.location.href = del.href; // This will navigate to the URL in the 'href' attribute of the <a> tag
                     });
-                    del.delete();
                 }
-            }); 
+            })
         })
     </script>
 </body>
