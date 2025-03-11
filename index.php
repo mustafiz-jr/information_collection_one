@@ -11,6 +11,7 @@
 
     <!-- sweet alert css cdn -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css">
+
     <style>
         input:focus {
             outline: none;
@@ -62,7 +63,7 @@
             const sweet = Swal.fire({
                 title: "Are you sure to submit?",
                 // text: "You won't be able to revert this!",
-                icon: "warning",
+                icon: "question",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
