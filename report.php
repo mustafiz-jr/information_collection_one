@@ -56,10 +56,10 @@ include("action/fetch.php");
                                     <?php } ?>
                                 </td>
                                 <td scope="row">
-                                    <a href="action/delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger btn-sm" id="delete">Delete</a>
+                                    <a href="action/delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger btn-sm" id="del">Delete</a>
                                 </td>
                                 <td>
-                                    <a href="update.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary btn-sm">Edit</a>
+                                    <a href="update.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary btn-sm" id="edit">Edit</a>
                                 </td>
 
                             </tr>
@@ -86,7 +86,8 @@ include("action/fetch.php");
         const on = document.getElementById("on");
         on.addEventListener("click", function(stop) {
             stop.preventDefault();
-            const sweet = Swal.fire({
+            Swal.fire({
+                position: "bottom-end",
                 title: "Turned ON!",
                 icon: "success",
                 draggable: true
@@ -101,24 +102,26 @@ include("action/fetch.php");
         const off = document.getElementById("off");
         off.addEventListener("click", function(stop) {
             stop.preventDefault();
-            const sweet = Swal.fire({
+            Swal.fire({
+                position: "bottom-start",
                 title: "Turned OFF!",
                 icon: "success",
                 draggable: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = off.href;
+                    window.location.href = on.href;
                 }
             })
         })
 
 
+
         // delete confirmation code
-        const del = document.getElementById("delete");
+        const del = document.getElementById("del");
 
         del.addEventListener('click', function(pause) {
             pause.preventDefault();
-            const cut = Swal.fire({
+            Swal.fire({
                 title: "Are you sure to delete?",
                 icon: "question",
                 showCancelButton: true,
@@ -128,16 +131,36 @@ include("action/fetch.php");
             }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
+                        position:"bottom-start",
                         title: "Deleted!",
                         text: "Your file has been deleted.",
                         icon: "success"
                     }).then(() => {
                         // Redirect to the delete.php page with the ID parameter
                         window.location.href = del.href; // This will navigate to the URL in the 'href' attribute of the <a> tag
-                    });
+                    })
                 }
-            })
-        })
+            });
+        });
+
+
+
+        // edit confirmaiton popup
+        const edit = document.getElementById("edit");
+        edit.addEventListener('click', function(stop) {
+            stop.preventDefault();
+            Swal.fire({
+                title: "Are you sure you want to edit?",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = edit.href; 
+                }
+            });
+        });
     </script>
 </body>
 
