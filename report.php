@@ -50,9 +50,9 @@ include("action/fetch.php");
                                 <td scope="row"><?php echo $row['date'] ?></td>
                                 <td scope="row">
                                     <?php if ($row['status'] == 1) { ?>
-                                        <a href="action/on-off.php?id= <?php echo $row['id'] ?>" class="btn btn-info" onclick="on()" id="on">On</a>
+                                        <a href="action/on-off.php?id= <?php echo $row['id'] ?>" class="btn btn-info" id="on">On</a>
                                     <?php } else { ?>
-                                        <a href="action/on-off.php?id= <?php echo $row['id'] ?>" class="btn btn-warning" onclick="off()">Off</a>
+                                        <a href="action/on-off.php?id= <?php echo $row['id'] ?>" class="btn btn-warning" id="off">Off</a>
                                     <?php } ?>
                                 </td>
                                 <td scope="row">
@@ -82,7 +82,6 @@ include("action/fetch.php");
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
 
     <script>
-
         // turning on popup showing code
         const on = document.getElementById("on");
         on.addEventListener("click", function(stop) {
@@ -98,6 +97,20 @@ include("action/fetch.php");
             })
         })
 
+        // turning off popup showing code
+        const off = document.getElementById("off");
+        off.addEventListener("click", function(stop) {
+            stop.preventDefault();
+            const sweet = Swal.fire({
+                title: "Turned OFF!",
+                icon: "success",
+                draggable: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = off.href;
+                }
+            })
+        })
 
 
         // delete confirmation code
