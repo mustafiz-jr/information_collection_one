@@ -71,8 +71,8 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
-                        title: "Deleted!",
-                        text: "Your file has been deleted.",
+                        title: "submitted!",
+                        text: "Your data has been submitted.",
                         icon: "success"
                     });
                     form.submit();
