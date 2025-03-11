@@ -40,7 +40,7 @@
                 <br>
                 <br>
                 <br>
-                <button class="btn btn-primary btn-md px-3">submit</button>
+                <button type="submit" class="btn btn-primary btn-md px-3">submit</button>
             </form>
         </section>
     </main>
