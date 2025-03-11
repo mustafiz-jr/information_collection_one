@@ -40,7 +40,10 @@
                 <br>
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary btn-md px-3">submit</button>
+                <div class="d-flex gap-5">
+                    <button type="submit" class="btn btn-primary btn-md px-3">submit</button>
+        <a href="report.php" class="btn btn-secondary px-4 py-1">Go to Report page</a>
+                </div>
             </form>
         </section>
     </main>
