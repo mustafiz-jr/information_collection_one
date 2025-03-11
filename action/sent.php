@@ -1,7 +1,7 @@
 <?php
 include("database.php");
 
-$insertData = sprintf("INSERT INTO `data` (`name`,`email`,`contact`,`course``date`) VALUES ('%S','%S','%S','%S','%S')",
+$insertData = sprintf("INSERT INTO `data` (`name`,`email`,`contact`,`course`,`date`) VALUES ('%s','%s','%s','%s','%s')",
 $_POST['name'],
 $_POST['email'],
 $_POST['contact'],
